@@ -1,4 +1,4 @@
-﻿namespace Hovedoppgave.Api.Models
+﻿namespace Hovedoppgave.Models
 {
     public class AuthResponse
     {

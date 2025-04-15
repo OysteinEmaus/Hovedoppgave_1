@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Hovedoppgave.Api.Models
+namespace Hovedoppgave.Models
 {
     public class User
     {
@@ -21,7 +21,7 @@ namespace Hovedoppgave.Api.Models
         [MaxLength(255)]
         public string PasswordHash { get; set; }
 
-        public string Role { get; set; } = "User"; // Default role
+        public string Role { get; set; } = "User"; // Default rolle
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 

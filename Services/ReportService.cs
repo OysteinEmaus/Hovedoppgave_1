@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Hovedoppgave.Api.Data;
-using Hovedoppgave.Api.Models;
+using Hovedoppgave.Data;
+using Hovedoppgave.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Hovedoppgave.Api.Services
+namespace Hovedoppgave.Services
 {
     public class ReportService
     {

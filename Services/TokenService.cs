@@ -2,11 +2,11 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Hovedoppgave.Api.Models;
+using Hovedoppgave.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Hovedoppgave.Api.Services
+namespace Hovedoppgave.Services
 {
     public class TokenService
     {
@@ -31,7 +31,7 @@ namespace Hovedoppgave.Api.Services
                     new Claim(ClaimTypes.Email, user.Email),
                     new Claim(ClaimTypes.Role, user.Role)
                 }),
-                Expires = DateTime.UtcNow.AddHours(24), // Token valid for 24 hours
+                Expires = DateTime.UtcNow.AddHours(24), // Token gyldig i 24 timer
                 SigningCredentials = new SigningCredentials(
                     new SymmetricSecurityKey(key),
                     SecurityAlgorithms.HmacSha256Signature

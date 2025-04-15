@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\oyste\\source\\repos\\Hovedoppgave\\Hovedoppgave\\Hovedoppgave.csproj": {}
+    "C:\\Users\\Jobb.LAPTOP-ELFRHRFH\\source\\repos\\OysteinEmaus\\Hovedoppgave_1\\Hovedoppgave.csproj": {}
   },
   "projects": {
-    "C:\\Users\\oyste\\source\\repos\\Hovedoppgave\\Hovedoppgave\\Hovedoppgave.csproj": {
+    "C:\\Users\\Jobb.LAPTOP-ELFRHRFH\\source\\repos\\OysteinEmaus\\Hovedoppgave_1\\Hovedoppgave.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\oyste\\source\\repos\\Hovedoppgave\\Hovedoppgave\\Hovedoppgave.csproj",
+        "projectUniqueName": "C:\\Users\\Jobb.LAPTOP-ELFRHRFH\\source\\repos\\OysteinEmaus\\Hovedoppgave_1\\Hovedoppgave.csproj",
         "projectName": "Hovedoppgave",
-        "projectPath": "C:\\Users\\oyste\\source\\repos\\Hovedoppgave\\Hovedoppgave\\Hovedoppgave.csproj",
-        "packagesPath": "C:\\Users\\oyste\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\oyste\\source\\repos\\Hovedoppgave\\Hovedoppgave\\obj\\",
+        "projectPath": "C:\\Users\\Jobb.LAPTOP-ELFRHRFH\\source\\repos\\OysteinEmaus\\Hovedoppgave_1\\Hovedoppgave.csproj",
+        "packagesPath": "C:\\Users\\Jobb.LAPTOP-ELFRHRFH\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jobb.LAPTOP-ELFRHRFH\\source\\repos\\OysteinEmaus\\Hovedoppgave_1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\oyste\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jobb.LAPTOP-ELFRHRFH\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -115,7 +115,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

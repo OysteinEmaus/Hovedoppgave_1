@@ -5,20 +5,21 @@ using Hovedoppgave.Api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Hovedoppgave.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configure database
+// Konfigurere database
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
-// Configure services
+// Konfigurere services
 builder.Services.AddScoped<TokenService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<ReportService>();
 
-// Configure CORS
+// Konfigurere CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
@@ -29,7 +30,7 @@ builder.Services.AddCors(options =>
             .AllowCredentials());
 });
 
-// Configure JWT authentication
+// Konfigurere JWT authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -52,7 +53,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure middleware pipeline
+// Konfigurere middleware
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -61,12 +62,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors("AllowSpecificOrigin");
-app.UseAuthentication(); // Add authentication middleware
+app.UseAuthentication(); // Legg til authentication middleware
 app.UseAuthorization();
 
 app.MapControllers();
 
-// Run migrations on startup in development
+app.UseMiddleware<ErrorHandlingMiddleware>();
+
+// Kjøre migrering ved oppstart
 if (app.Environment.IsDevelopment())
 {
     using (var scope = app.Services.CreateScope())

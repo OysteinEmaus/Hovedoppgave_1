@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Hovedoppgave.Api.Models
+namespace Hovedoppgave.Models
 {
     public class Report
     {

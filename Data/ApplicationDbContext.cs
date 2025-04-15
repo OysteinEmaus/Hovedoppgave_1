@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Hovedoppgave.Api.Models;
+using Hovedoppgave.Models;
 
-namespace Hovedoppgave.Api.Data
+namespace Hovedoppgave.Data
 {
     public class ApplicationDbContext : DbContext
     {
@@ -15,7 +15,7 @@ namespace Hovedoppgave.Api.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Add unique constraint to username and email
+            // Legg til unike indekser for brukernavn og e-post
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.Username)
                 .IsUnique();
@@ -24,7 +24,7 @@ namespace Hovedoppgave.Api.Data
                 .HasIndex(u => u.Email)
                 .IsUnique();
 
-            // Configure one-to-many relationship between User and Reports
+            // Konfigurer relasjonen mellom User og Report
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Reports)
                 .WithOne(r => r.User)

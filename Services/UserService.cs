@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Hovedoppgave.Api.Data;
-using Hovedoppgave.Api.Models;
+using Hovedoppgave.Data;
+using Hovedoppgave.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Hovedoppgave.Api.Services
+namespace Hovedoppgave.Services
 {
     public class UserService
     {
@@ -19,19 +19,19 @@ namespace Hovedoppgave.Api.Services
 
         public async Task<AuthResponse> Register(RegisterRequest request)
         {
-            // Check if username already exists
+            // Sjekke om brukernavn allerede eksisterer
             if (await _context.Users.AnyAsync(u => u.Username == request.Username))
             {
                 throw new Exception("Username is already taken");
             }
 
-            // Check if email already exists
+            // Sjekke om e-post allerede eksisterer
             if (await _context.Users.AnyAsync(u => u.Email == request.Email))
             {
                 throw new Exception("Email is already registered");
             }
 
-            // Create new user
+            // Lage ny bruker
             var user = new User
             {
                 Username = request.Username,
@@ -42,7 +42,7 @@ namespace Hovedoppgave.Api.Services
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            // Generate JWT token
+            // Generere JWT token
             var token = _tokenService.GenerateJwtToken(user);
 
             return new AuthResponse
@@ -57,7 +57,7 @@ namespace Hovedoppgave.Api.Services
 
         public async Task<AuthResponse> Login(LoginRequest request)
         {
-            // Find user by username
+            // Finn bruker etter brukernavn
             var user = await _context.Users
                 .FirstOrDefaultAsync(u => u.Username == request.Username);
 
@@ -66,13 +66,13 @@ namespace Hovedoppgave.Api.Services
                 throw new Exception("Invalid username or password");
             }
 
-            // Verify password
+            // Verifiser passord
             if (!BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
             {
                 throw new Exception("Invalid username or password");
             }
 
-            // Generate JWT token
+            // Generere JWT token
             var token = _tokenService.GenerateJwtToken(user);
 
             return new AuthResponse
